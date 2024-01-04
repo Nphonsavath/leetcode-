@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int n : nums) {
+            if (!set.add(n)) { //if it is just set.add(n) it is true and no duplicate, if it is !set.add(n) it means that there is duplicate 
+                return true;
+            }
+        }
+        return false;
+    }
+}
