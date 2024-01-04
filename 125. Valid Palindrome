@@ -1,0 +1,53 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        
+        String sNoWhiteSpace = s.replaceAll("[^a-zA-Z0-9]", "").replace(" ", "").toLowerCase();
+        int L = 0, R = sNoWhiteSpace.length() - 1;
+
+        if (sNoWhiteSpace == null || sNoWhiteSpace.length() == 0) {
+            return true;
+        }
+
+        while (L < R) {
+            if (sNoWhiteSpace.charAt(L) != sNoWhiteSpace.charAt(R)) {
+                return false;
+            }
+            L++;
+            R--;
+        }
+
+        return true;
+
+    }
+}
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        int L = 0, R = s.length() -1;
+
+        
+        while (L < R) {
+            Character start = s.charAt(L);
+            Character end = s.charAt(R);
+            if (!Character.isLetterOrDigit(start)) {
+                L++;
+                continue;
+            }
+
+            if (!Character.isLetterOrDigit(end)) {
+                R--;
+                continue;
+            }
+
+            if (Character.toLowerCase(start) != Character.toLowerCase(end)) {
+                return false;
+            }
+
+            L++;
+            R--;
+            
+        }
+        return true;
+    }
+}
+
