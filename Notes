@@ -9,3 +9,6 @@
 
 49. Group Anagrams: Given an array of strings strs, group the anagrams together. You can return the answer in any order.
   IDEA: iterate through each string in String[], create a char[] to store each letter and iterate through each character in string as an array, ascii subtraction increment, get the string of that array and if its not a keyyet add it with its value as an arrayList and add get that key and add string, return arrayList with map.values()
+
+20. Valid Parentheses: Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  IDEA: iterate through string, if open push, if not check if stack empty (that means no matching), peek at top, if the top is an open bracket and the char is a closed bracket they match and pop, if not return false. return stack.isEmpty()
