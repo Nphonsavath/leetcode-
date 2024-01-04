@@ -1,0 +1,22 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs.length == 0 || strs == null) {
+            return new ArrayList<>();
+        }
+
+        HashMap<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = new char[26];
+            for (char c : s.toCharArray()) { // for each cahracter in the string
+                ca[c - 'a']++; //counts the frequency and increments the index
+            }
+            String keyStr = String.valueOf(ca);
+            if (!map.containsKey(keyStr)) {
+                map.put(keyStr, new ArrayList<>());
+            }
+            map.get(keyStr).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+}
