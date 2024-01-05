@@ -25,3 +25,7 @@ Return the maximum profit you can achieve from this transaction. If you cannot a
 You must write an algorithm with O(log n) runtime complexity.
   IDEA: Like a dictionary, take half and look in the other. 2 Pointer problem, start and end. while L does not pass right, find mid which is int (L+R)/2. If target > num[mid] that means it is on right to move left = mid + 1, if target < num[mid] means on left so R = 
   mid - 1; else return mid.
+
+347. Top K Frequent Elements: Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+  IDEA: Hashing. Iterate through int[] nums, put in hashmap with key (int) and value (freq). Create bucket which is List<Integer>[] with size (nums.length + 1), itereate through key in map.keySet(), get the freq and if the bucket at the freq is null add arrayList, 
+  always add the key to that bucket[freq]. make result int[], iterate through desccending order of bnucket, if its not null iterate through each element in bucket.
