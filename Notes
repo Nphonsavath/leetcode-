@@ -33,3 +33,7 @@ You must write an algorithm with O(log n) runtime complexity.
 206. Reverse Linked LIst: Given the head of a singly linked list, reverse the list, and return the reversed list. 
   IDEA: 2 pointer problem, for curr and prev. Make save head.next node, make head next node point to null sincec it is now tail, make prevHead new Head and head the head.next you saved previously. Recusrively, check if head == null or head.next == null, if not 
   call recusrive on head.next til u hit tail which is now new head, it will go back to tail.prevs node and you will make the next next element that element, and set that elements next to null
+
+21. Merge Two Sorted Lists: You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+  IDEA: Check edge cases if eiter list is empty return the other one. Create solution list, and keep track of head variable. While both lists arent null compare values, move head to smaller value and increment the node in the list and head, once one list is null
+  have if to check which is emptied first and continue with thhe entirety of other list.
