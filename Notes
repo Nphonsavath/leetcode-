@@ -20,3 +20,8 @@
 121. Best Time to Buy and Sell Stock: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
   IDEA: 2 pointers at 0 and 1, while the sell pointer (R) is not past length of array compare the price and if you are buying less than selling calculate profit and Math.max, if not put L to R and always increment R
+
+704. Binary Search: Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+You must write an algorithm with O(log n) runtime complexity.
+  IDEA: Like a dictionary, take half and look in the other. 2 Pointer problem, start and end. while L does not pass right, find mid which is int (L+R)/2. If target > num[mid] that means it is on right to move left = mid + 1, if target < num[mid] means on left so R = 
+  mid - 1; else return mid.
