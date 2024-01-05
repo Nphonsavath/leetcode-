@@ -37,3 +37,7 @@ You must write an algorithm with O(log n) runtime complexity.
 21. Merge Two Sorted Lists: You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
   IDEA: Check edge cases if eiter list is empty return the other one. Create solution list, and keep track of head variable. While both lists arent null compare values, move head to smaller value and increment the node in the list and head, once one list is null
   have if to check which is emptied first and continue with thhe entirety of other list.
+
+141. Linked List Cycle: Given head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. 
+Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+  IDEA:Remeber tortise and hare, 2xSlow = Fast, ahve 2 pointers at head. While (fast != null && fast.next != null) increment slow by 1 and fast by 2. if they meet then there is a cycle otherwise false.
