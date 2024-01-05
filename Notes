@@ -17,3 +17,6 @@
   IDEA: convert string to replaceAll non alphanumeric, replace space with empty and make lower, 2 pointer, check if new string is null or length 0 return true, compare L and R until cross
   IDEA: Make Character value at strings index 0 and Length -1, while pointer not crossed check if !Character.isLetterOrDigit(start)) (which means not valid char) increment index 1 and continue until both land on valid char then check if equal after calling toLower
 
+121. Best Time to Buy and Sell Stock: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+  IDEA: 2 pointers at 0 and 1, while the sell pointer (R) is not past length of array compare the price and if you are buying less than selling calculate profit and Math.max, if not put L to R and always increment R
