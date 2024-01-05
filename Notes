@@ -29,3 +29,7 @@ You must write an algorithm with O(log n) runtime complexity.
 347. Top K Frequent Elements: Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
   IDEA: Hashing. Iterate through int[] nums, put in hashmap with key (int) and value (freq). Create bucket which is List<Integer>[] with size (nums.length + 1), itereate through key in map.keySet(), get the freq and if the bucket at the freq is null add arrayList, 
   always add the key to that bucket[freq]. make result int[], iterate through desccending order of bnucket, if its not null iterate through each element in bucket.
+
+206. Reverse Linked LIst: Given the head of a singly linked list, reverse the list, and return the reversed list. 
+  IDEA: 2 pointer problem, for curr and prev. Make save head.next node, make head next node point to null sincec it is now tail, make prevHead new Head and head the head.next you saved previously. Recusrively, check if head == null or head.next == null, if not 
+  call recusrive on head.next til u hit tail which is now new head, it will go back to tail.prevs node and you will make the next next element that element, and set that elements next to null
