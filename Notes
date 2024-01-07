@@ -45,3 +45,6 @@ Internally, pos is used to denote the index of the node that tail's next pointer
 238. Product of Array Except Self: Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 You must write an algorithm that runs in O(n) time and without using the division operation.
   IDEA: use 3 arrays: prefix, postfix, solution. use initial value 1 and put in array then multiply by current value, should be slightly offset, then multiply both arrays together for solution. or multiply entire array and divide by each element if possible.
+
+226. Invert binary tree: Given the root of a binary tree, invert the tree, and return its root.
+  IDEA: Recursive. Base case if root == null return root. Call on left, call on right. it will make its way to node with left and right. make temp variable, store right, change right to left, change left to temp, return root.
