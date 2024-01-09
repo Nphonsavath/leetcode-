@@ -51,3 +51,7 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 
 104. Maximum Depth of a Binary Tree Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
   IDEA: Recursion. The max depth using dfs formula is check if root == null return 0, otherwise int left = maxDepth(nodel.left) and same with right, and you will return 1 + the max of the left and right nodes.
+
+543. Diameter of Binary Tree: Given the root of a binary tree, return the length of the diameter of the tree.The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+The length of a path between two nodes is represented by the number of edges between them.
+  IDEA: Have helper function, and global result var. usual dfs depth recursion, have max = Math.max(res, left+right) and return depth formula 1+Math.max(left, right)
