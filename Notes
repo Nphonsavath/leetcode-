@@ -66,3 +66,7 @@ The length of a path between two nodes is represented by the number of edges bet
 53. Maximum Subarray: Given an integer array nums, find the sub array with the largest sum, and return its sum.
   IDEA: set max and current vars to nums[0]. iterate from i = 1 to length, your current value will either be the max of (current + nums[i] which is the next element, or if it makes it smaller to restart with the next elemnt nums[i]) then the max is math of (current,max)
 
+169. Majority Element: Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+  IDEA: use hashmap to keep track of frequency, iterate through nums, put in the valuea and its frequency using map.getOrDefault(map[i], 0) +1 and set max to the current freq (Math.max(map.get(nums[i], max));. after that, iterate through keys using mey.keySet()
+  and if the value of the key == max return that solution. 
+  FOLLOWUP: O(N) Time O(1) Space: first element starts as majortiy ans=nums[0] count = 1. iterate through int[] starting at 1, if ans != nums[i] decrement count. if statement (count == 0) ans = nums[i] count =1.
