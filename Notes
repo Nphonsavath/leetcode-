@@ -62,3 +62,7 @@ The length of a path between two nodes is represented by the number of edges bet
 15: 3Sum: Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0. Notice that the solution set must not contain duplicate triplets.
   IDEA: Sort array to treat as TwoSumII. Check initial conditions null or length < 3. Have big for loop for non pivot element, check if i > 0 && nums[i] == nums[i-1] which means to find new non pivot element that isnt used before, otherwise continue (aka keep trying)
   Set L to i+1, and R to typical num.length -1. iterate while L < R, get target value and check if < 0 move left in or > 0 move right in, otherwise create ArrayList and add in that order [i, l, r], increase L and while L < R and L is same as previous element L ++.  
+
+53. Maximum Subarray: Given an integer array nums, find the sub array with the largest sum, and return its sum.
+  IDEA: set max and current vars to nums[0]. iterate from i = 1 to length, your current value will either be the max of (current + nums[i] which is the next element, or if it makes it smaller to restart with the next elemnt nums[i]) then the max is math of (current,max)
+
