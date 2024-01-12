@@ -1,0 +1,22 @@
+class Solution {
+
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> solution = new ArrayList<>();
+        List<Integer> currentSubsets = new ArrayList<>();
+        helper(0, nums, currentSubsets, solution);
+        return solution;
+    }
+
+    public static void helper(int i, int[] nums, List<Integer> currentSubsets, List<List<Integer>> solution) {
+        if (i >= nums.length) {
+            solution.add(new ArrayList<>(currentSubsets));
+            return;
+        }
+
+        currentSubsets.add(nums[i]);
+        helper(i+1, nums, currentSubsets, solution);
+
+        currentSubsets.remove(currentSubsets.size() -1);
+        helper(i +1, nums, currentSubsets, solution);
+    }  
+}
