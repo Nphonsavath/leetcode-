@@ -73,3 +73,7 @@ The length of a path between two nodes is represented by the number of edges bet
 
 78. Subsets: Given an integer array nums of unique elements, return all possible subsets(the power set).The solution set must not contain duplicate subsets. Return the solution in any order.
   IDEA: create helper function with (int  i, int[] nums, currentSubsets, and solution). base case if i >= nums.length add currentSubsets to solution. currentSubsets.add(nums[i]) and call helper on i+1, remove the last element in currentSubsets, and call helperon i+1.
+
+2. Add Two Numbers: You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+  IDEA: create solution and cursor initially at node. iterate while l1 || l2 exists or carry != 0. if l1 isnt empty, add that to sum and move forward. same with l2. add carry to sum. get the carry value and next ele. set next node to new node and move current.
