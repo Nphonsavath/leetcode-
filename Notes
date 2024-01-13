@@ -70,3 +70,6 @@ The length of a path between two nodes is represented by the number of edges bet
   IDEA: use hashmap to keep track of frequency, iterate through nums, put in the valuea and its frequency using map.getOrDefault(map[i], 0) +1 and set max to the current freq (Math.max(map.get(nums[i], max));. after that, iterate through keys using mey.keySet()
   and if the value of the key == max return that solution. 
   FOLLOWUP: O(N) Time O(1) Space: first element starts as majortiy ans=nums[0] count = 1. iterate through int[] starting at 1, if ans != nums[i] decrement count. if statement (count == 0) ans = nums[i] count =1.
+
+78. Subsets: Given an integer array nums of unique elements, return all possible subsets(the power set).The solution set must not contain duplicate subsets. Return the solution in any order.
+  IDEA: create helper function with (int  i, int[] nums, currentSubsets, and solution). base case if i >= nums.length add currentSubsets to solution. currentSubsets.add(nums[i]) and call helper on i+1, remove the last element in currentSubsets, and call helperon i+1.
