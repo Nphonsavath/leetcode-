@@ -80,3 +80,6 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 
 19. Remove Nth Node From End of List: Given the head of a linked list, remove the nth node from the end of the list and return its head.
   IDEA: 2 pointer, slow and fast. Make fast n elements ahead of slow, iterate both until fast == null, so that S.next will be the elment to remove. 
+
+1929. Concatenation of Array: Specifically, ans is the concatenation of two nums arrays.
+  IDEA:  make array 2*nums.length. iterate throug and solution[i] = nums[i] as well as solution[i]+nums.length = nums[i]. boom.
