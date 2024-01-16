@@ -87,3 +87,8 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 703. Kth Largest Element in a Stream: Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 Implement KthLargest class:KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of integers nums.int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.
   IDEA:  implement priority queue (min queue default in java). add all nums in int[] nums to pq. in add function add val to pq. trick, keep pq at size k so check if pq.size() > k, if so remove() (which will remove smallest element) and return pq.peek()
+
+572. Subtree of Another Tree: Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values of subRoot and false otherwise.
+A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.
+  IDEA:  create dfs iterative function (checks if root/subRoot == null, return true since it went through the entire thing, check if root or subRoot == null or root.val != subroot.val return false, call on left and right, return &&) in subTree function
+  check root/subRoot == false, call dfs function, return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
