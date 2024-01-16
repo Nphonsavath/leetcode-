@@ -92,3 +92,8 @@ Implement KthLargest class:KthLargest(int k, int[] nums) Initializes the object 
 A subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.
   IDEA:  create dfs iterative function (checks if root/subRoot == null, return true since it went through the entire thing, check if root or subRoot == null or root.val != subroot.val return false, call on left and right, return &&) in subTree function
   check root/subRoot == false, call dfs function, return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
+
+1046. Last Stone Weight: You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+If x == y, both stones are destroyed, and
+If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x. At the end of the game, there is at most one stone left. Return the weight of the last remaining stone. If there are no stones left, return 0.
+  IDEA: use PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()) as max heap, add all stones to pq. while (pq.size() > 1) poll and compare stones.
