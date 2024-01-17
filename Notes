@@ -97,3 +97,6 @@ A subtree of a binary tree tree is a tree that consists of a node in tree and al
 If x == y, both stones are destroyed, and
 If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x. At the end of the game, there is at most one stone left. Return the weight of the last remaining stone. If there are no stones left, return 0.
   IDEA: use PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()) as max heap, add all stones to pq. while (pq.size() > 1) poll and compare stones.
+
+215: Kth Largest Element in an Array: Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?
+  IDEA: add all nums to pq (which is max heap), for loop where condition is i < k-1, so remove elements so that the one you would remove next would be kth element and return that  one
