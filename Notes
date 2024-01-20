@@ -101,5 +101,8 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 215: Kth Largest Element in an Array: Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?
   IDEA: add all nums to pq (which is max heap), for loop where condition is i < k-1, so remove elements so that the one you would remove next would be kth element and return that  one
 
-973. K Cloest Points to Origin
+973. K Closest Points to Origin
   IDEA:  Make priority queue with your own comparator PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> (b[0]*b[0]+b[1]*b[1] - (a[0]*a[0]+a[1]*a[1]))). Iterate through int[] points, add them to pq, check size of pq and poll if larger. make int[][] and add.
+
+268. Missing Number
+  IDEA:  use logic, since it is missing 1 number from [0, n], the correct sum will be all those added together, minus the nums array will lead to missing number
