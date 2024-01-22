@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+       int sPointer = 0, tPointer = 0;
+       char[] sAsCharArray = s.toCharArray(), tAsCharArray = t.toCharArray();
+       while (sPointer < s.length() && tPointer < t.length()) {
+           if (sAsCharArray[sPointer] == tAsCharArray[tPointer]) {
+               sPointer++;
+           }
+           tPointer++;
+       }
+       return sPointer == s.length();
+    }
+}
