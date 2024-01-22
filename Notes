@@ -115,3 +115,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 392. Is Subsequence: Given two strings s and t, return true if s is a subsequence of t, or false otherwise. A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
   IDEA:   2 pointer approach, s and l, while they are less than their respsective length, check if chararater at s and t are equal and move s pointer if so, always move t pointer no matter what. will return == of s pointer value and s.length()
+
+58. Length of Last Word: Given a string s consisting of words and spaces, return the length of the last word in the string.A word is a maximal substring consisting of non-space characters only.
+  IDEA:  iterate backwards through streing, if its a space it will continue through loop and return length if length > 0 since we have encountered our word, if it not a space then we begin counting our word,
