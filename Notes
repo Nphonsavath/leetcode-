@@ -112,3 +112,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 1299: Replace Elements with Greatest Element on Right Side: Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1. After doing so, return the array.
   IDEA:  iterate array backwards, store the temp variable, replace last elementw ith max initially (-1) and compute new max.
+
+392. Is Subsequence: Given two strings s and t, return true if s is a subsequence of t, or false otherwise. A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+  IDEA:   2 pointer approach, s and l, while they are less than their respsective length, check if chararater at s and t are equal and move s pointer if so, always move t pointer no matter what. will return == of s pointer value and s.length()
