@@ -118,3 +118,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 58. Length of Last Word: Given a string s consisting of words and spaces, return the length of the last word in the string.A word is a maximal substring consisting of non-space characters only.
   IDEA:  iterate backwards through streing, if its a space it will continue through loop and return length if length > 0 since we have encountered our word, if it not a space then we begin counting our word,
+
+344. Reverse String: Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.
+  IDEA:  2 pointer, create temp variable and swap em
