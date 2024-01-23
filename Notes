@@ -98,19 +98,19 @@ If x == y, both stones are destroyed, and
 If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x. At the end of the game, there is at most one stone left. Return the weight of the last remaining stone. If there are no stones left, return 0.
   IDEA: use PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()) as max heap, add all stones to pq. while (pq.size() > 1) poll and compare stones.
 
-215: Kth Largest Element in an Array: Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?
+215. Kth Largest Element in an Array: Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?
   IDEA: add all nums to pq (which is max heap), for loop where condition is i < k-1, so remove elements so that the one you would remove next would be kth element and return that  one
 
-973: K Closest Points to Origin
+973. K Closest Points to Origin
   IDEA:  Make priority queue with your own comparator PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> (b[0]*b[0]+b[1]*b[1] - (a[0]*a[0]+a[1]*a[1]))). Iterate through int[] points, add them to pq, check size of pq and poll if larger. make int[][] and add.
 
-268: Missing Number
+268. Missing Number
   IDEA:  use logic, since it is missing 1 number from [0, n], the correct sum will be all those added together, minus the nums array will lead to missing number
 
-136: Single Number: Given a non-empty array of integers nums, every element appears twice except for one. Find that single one. You must implement a solution with a linear runtime complexity and use only constant extra space.
+136. Single Number: Given a non-empty array of integers nums, every element appears twice except for one. Find that single one. You must implement a solution with a linear runtime complexity and use only constant extra space.
   IDEA: use hashmap, put the value in and use getOrDefault(nums[i], 0) + 1. iterate through keyset, if the keys value == 1 return that key
 
-1299: Replace Elements with Greatest Element on Right Side: Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1. After doing so, return the array.
+1299. Replace Elements with Greatest Element on Right Side: Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1. After doing so, return the array.
   IDEA:  iterate array backwards, store the temp variable, replace last elementw ith max initially (-1) and compute new max.
 
 392. Is Subsequence: Given two strings s and t, return true if s is a subsequence of t, or false otherwise. A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
