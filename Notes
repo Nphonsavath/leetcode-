@@ -121,3 +121,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 344. Reverse String: Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.
   IDEA:  2 pointer, create temp variable and swap em
+
+28. Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+  IDEA:  create var to track correct values, iterate through haystack. if the characters match move the tracking var ++, if not move i to i-trackingVar. check if (trackingVar reached needle length, return value)
