@@ -130,3 +130,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 203. Remove Linked List Elementss: Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
   IDEA:  create dummy node, and current node. check curr && curr.next, if next val == val, move it to next.next, continue. always move current to curr.next
+
+234. Palindrome Linked List: Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+  IDEA:  add all elements to stack (LIFO). iterate through list and compare values, if doesnt equal stack.pop() return false, otherwise true
