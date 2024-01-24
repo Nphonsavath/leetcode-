@@ -133,3 +133,6 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 234. Palindrome Linked List: Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
   IDEA:  add all elements to stack (LIFO). iterate through list and compare values, if doesnt equal stack.pop() return false, otherwise true
+
+876. Middle of the Linked List: Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.
+  IDEA:  while (fast != null) {slow = slow.next;fast = fast.next.next;} just remember slow and fast pointer.
