@@ -139,3 +139,10 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 
 219. Contains Duplicate II: Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
   IDEA:  basically look for dupe and check that their index <=k. Add to hashmap, iterate through and check if map contains nums[i] and the value of the key nums[i] - i (where the other dupe is) <= k else put into map.
+
+1822. Sign of the Product of an Array: There is a function signFunc(x) that returns:
+1 if x is positive.
+-1 if x is negative.
+0 if x is equal to 0.
+You are given an integer array nums. Let product be the product of all values in the array nums. Return signFunc(product).
+  IDEA:  doesnt matter number just sign, if any are 0 reutnr 0. initialize product as 1 and only do something if < 0 (-1)
