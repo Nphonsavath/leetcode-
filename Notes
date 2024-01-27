@@ -8,7 +8,8 @@
   IDEA: Clever trick to use hashmap to check if map contains (target number - the value at index i in for loop), if it does return both otherwise add to map
 
 49. Group Anagrams: Given an array of strings strs, group the anagrams together. You can return the answer in any order.
-  IDEA: iterate through each string in String[], create a char[] to store each letter and iterate through each character in string as an array, ascii subtraction increment, get the string of that array and if its not a keyyet add it with its value as an arrayList and add get that key and add string, return arrayList with map.values()
+  IDEA: iterate through each string in String[], create a char[] to store each letter and iterate through each character in string as an array, ascii subtraction increment, get the string of that array and if its not a keyyet add it with its value as an 
+arrayList and add get that key and add string, return arrayList with map.values()
 
 20. Valid Parentheses: Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
   IDEA: iterate through string, if open push, if not check if stack empty (that means no matching), peek at top, if the top is an open bracket and the char is a closed bracket they match and pop, if not return false. return stack.isEmpty()
@@ -17,14 +18,15 @@
   IDEA: convert string to replaceAll non alphanumeric, replace space with empty and make lower, 2 pointer, check if new string is null or length 0 return true, compare L and R until cross
   IDEA: Make Character value at strings index 0 and Length -1, while pointer not crossed check if !Character.isLetterOrDigit(start)) (which means not valid char) increment index 1 and continue until both land on valid char then check if equal after calling toLower
 
-121. Best Time to Buy and Sell Stock: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+121. Best Time to Buy and Sell Stock: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell 
+that stock.
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
   IDEA: 2 pointers at 0 and 1, while the sell pointer (R) is not past length of array compare the price and if you are buying less than selling calculate profit and Math.max, if not put L to R and always increment R
 
 704. Binary Search: Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
 You must write an algorithm with O(log n) runtime complexity.
-  IDEA: Like a dictionary, take half and look in the other. 2 Pointer problem, start and end. while L does not pass right, find mid which is int (L+R)/2. If target > num[mid] that means it is on right to move left = mid + 1, if target < num[mid] means on left so R = 
-  mid - 1; else return mid.
+  IDEA: Like a dictionary, take half and look in the other. 2 Pointer problem, start and end. while L does not pass right, find mid which is int (L+R)/2. If target > num[mid] that means it is on right to move left = mid + 1, if target < num[mid] means on left
+so R = mid - 1; else return mid.
 
 347. Top K Frequent Elements: Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
   IDEA: Hashing. Iterate through int[] nums, put in hashmap with key (int) and value (freq). Create bucket which is List<Integer>[] with size (nums.length + 1), itereate through key in map.keySet(), get the freq and if the bucket at the freq is null add arrayList, 
@@ -60,11 +62,13 @@ The length of a path between two nodes is represented by the number of edges bet
   IDEA: what makes them the same? well if they are both null they are equal, then cheeck if they are false if one is null or their values are not equal. otherwise call the recrusive function on left and right and return results &&
 
 15: 3Sum: Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0. Notice that the solution set must not contain duplicate triplets.
-  IDEA: Sort array to treat as TwoSumII. Check initial conditions null or length < 3. Have big for loop for non pivot element, check if i > 0 && nums[i] == nums[i-1] which means to find new non pivot element that isnt used before, otherwise continue (aka keep trying)
+  IDEA: Sort array to treat as TwoSumII. Check initial conditions null or length < 3. Have big for loop for non pivot element, check if i > 0 && nums[i] == nums[i-1] which means to find new non pivot element that isnt used before, otherwise continue 
+  (aka keep trying)
   Set L to i+1, and R to typical num.length -1. iterate while L < R, get target value and check if < 0 move left in or > 0 move right in, otherwise create ArrayList and add in that order [i, l, r], increase L and while L < R and L is same as previous element L ++.  
 
 53. Maximum Subarray: Given an integer array nums, find the sub array with the largest sum, and return its sum.
-  IDEA: set max and current vars to nums[0]. iterate from i = 1 to length, your current value will either be the max of (current + nums[i] which is the next element, or if it makes it smaller to restart with the next elemnt nums[i]) then the max is math of (current,max)
+  IDEA: set max and current vars to nums[0]. iterate from i = 1 to length, your current value will either be the max of (current + nums[i] which is the next element, or if it makes it smaller to restart with the next elemnt nums[i]) then the max is math of 
+(current,max)
 
 169. Majority Element: Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
   IDEA: use hashmap to keep track of frequency, iterate through nums, put in the valuea and its frequency using map.getOrDefault(map[i], 0) +1 and set max to the current freq (Math.max(map.get(nums[i], max));. after that, iterate through keys using mey.keySet()
@@ -72,7 +76,8 @@ The length of a path between two nodes is represented by the number of edges bet
   FOLLOWUP: O(N) Time O(1) Space: first element starts as majortiy ans=nums[0] count = 1. iterate through int[] starting at 1, if ans != nums[i] decrement count. if statement (count == 0) ans = nums[i] count =1.
 
 78. Subsets: Given an integer array nums of unique elements, return all possible subsets(the power set).The solution set must not contain duplicate subsets. Return the solution in any order.
-  IDEA: create helper function with (int  i, int[] nums, currentSubsets, and solution). base case if i >= nums.length add currentSubsets to solution. currentSubsets.add(nums[i]) and call helper on i+1, remove the last element in currentSubsets, and call helperon i+1.
+  IDEA: create helper function with (int  i, int[] nums, currentSubsets, and solution). base case if i >= nums.length add currentSubsets to solution. currentSubsets.add(nums[i]) and call helper on i+1, remove the last element in currentSubsets, and call 
+helperon i+1.
 
 2. Add Two Numbers: You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -93,7 +98,8 @@ A subtree of a binary tree tree is a tree that consists of a node in tree and al
   IDEA:  create dfs iterative function (checks if root/subRoot == null, return true since it went through the entire thing, check if root or subRoot == null or root.val != subroot.val return false, call on left and right, return &&) in subTree function
   check root/subRoot == false, call dfs function, return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
 
-1046. Last Stone Weight: You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+1046. Last Stone Weight: You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones 
+have weights x and y with x <= y. The result of this smash is:
 If x == y, both stones are destroyed, and
 If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x. At the end of the game, there is at most one stone left. Return the weight of the last remaining stone. If there are no stones left, return 0.
   IDEA: use PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()) as max heap, add all stones to pq. while (pq.size() > 1) poll and compare stones.
@@ -113,7 +119,8 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 1299. Replace Elements with Greatest Element on Right Side: Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1. After doing so, return the array.
   IDEA:  iterate array backwards, store the temp variable, replace last elementw ith max initially (-1) and compute new max.
 
-392. Is Subsequence: Given two strings s and t, return true if s is a subsequence of t, or false otherwise. A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+392. Is Subsequence: Given two strings s and t, return true if s is a subsequence of t, or false otherwise. A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing 
+the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
   IDEA:   2 pointer approach, s and l, while they are less than their respsective length, check if chararater at s and t are equal and move s pointer if so, always move t pointer no matter what. will return == of s pointer value and s.length()
 
 58. Length of Last Word: Given a string s consisting of words and spaces, return the length of the last word in the string.A word is a maximal substring consisting of non-space characters only.
@@ -146,3 +153,10 @@ If x != y, the stone of weight x is destroyed, and the stone of weight y has new
 0 if x is equal to 0.
 You are given an integer array nums. Let product be the product of all values in the array nums. Return signFunc(product).
   IDEA:  doesnt matter number just sign, if any are 0 reutnr 0. initialize product as 1 and only do something if < 0 (-1)
+
+1603. Design Parking System: Design a parking system for a parking lot. The parking lot has three kinds of parking spaces: big, medium, and small, with a fixed number of slots for each size.
+Implement the ParkingSystem class:
+ParkingSystem(int big, int medium, int small) Initializes object of the ParkingSystem class. The number of slots for each parking space are given as part of the constructor.
+bool addCar(int carType) Checks whether there is a parking space of carType for the car that wants to get into the parking lot. carType can be of three kinds: big, medium, or small, which are represented by 1, 2, and 3 respectively.
+A car can only park in a parking space of its carType. If there is no space available, return false, else park the car in that size space and return true.
+  IDEA:  use array where big = index 1, medium = index 2, small = index 3. addCar function checks if array[carType]-- > 0;
