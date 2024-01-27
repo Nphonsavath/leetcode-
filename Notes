@@ -160,3 +160,7 @@ ParkingSystem(int big, int medium, int small) Initializes object of the ParkingS
 bool addCar(int carType) Checks whether there is a parking space of carType for the car that wants to get into the parking lot. carType can be of three kinds: big, medium, or small, which are represented by 1, 2, and 3 respectively.
 A car can only park in a parking space of its carType. If there is no space available, return false, else park the car in that size space and return true.
   IDEA:  use array where big = index 1, medium = index 2, small = index 3. addCar function checks if array[carType]-- > 0;
+
+11. Container With Most Water: You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store. Notice that you may not slant the container.
+  IDEA:  2 pointer, amount of water is smallest height * (R-L), find max between current and currentMax. move pointer that is smallest inwards.
