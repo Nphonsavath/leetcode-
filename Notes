@@ -164,3 +164,6 @@ A car can only park in a parking space of its carType. If there is no space avai
 11. Container With Most Water: You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store. Notice that you may not slant the container.
   IDEA:  2 pointer, amount of water is smallest height * (R-L), find max between current and currentMax. move pointer that is smallest inwards.
+
+3. Longest Substring Without Repeating Characters: Given a string s, find the length of the longest substring without repeating characters.
+  IDEA:  Sliding window (2 pointer), hashset. If hs doesnt have elment add fast (right) window char, and determine new max. Else move window in 1 by removing slow element (left)
