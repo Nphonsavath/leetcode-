@@ -167,3 +167,6 @@ Find two lines that together with the x-axis form a container, such that the con
 
 3. Longest Substring Without Repeating Characters: Given a string s, find the length of the longest substring without repeating characters.
   IDEA:  Sliding window (2 pointer), hashset. If hs doesnt have elment add fast (right) window char, and determine new max. Else move window in 1 by removing slow element (left).
+
+14. Longest Common Prefix: Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
+  IDEA:  find shortest word. 2 loops, outer for characters and inner for each string in strs, append to string builder and return
