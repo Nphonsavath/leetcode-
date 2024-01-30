@@ -166,4 +166,4 @@ Find two lines that together with the x-axis form a container, such that the con
   IDEA:  2 pointer, amount of water is smallest height * (R-L), find max between current and currentMax. move pointer that is smallest inwards.
 
 3. Longest Substring Without Repeating Characters: Given a string s, find the length of the longest substring without repeating characters.
-  IDEA:  Sliding window (2 pointer), hashset. If hs doesnt have elment add fast (right) window char, and determine new max. Else move window in 1 by removing slow element (left)
+  IDEA:  Sliding window (2 pointer), hashset. If hs doesnt have elment add fast (right) window char, and determine new max. Else move window in 1 by removing slow element (left).
