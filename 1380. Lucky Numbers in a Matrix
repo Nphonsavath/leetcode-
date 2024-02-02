@@ -1,0 +1,31 @@
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        int rowLength = matrix.length;
+        int columnLength = matrix[0].length;
+
+        int minimumValueInRowIndex = -1;
+
+        ArrayList<Integer> al = new ArrayList<>();
+
+        for (int i = 0 ; i < rowLength; i ++){
+            int min = Integer.MAX_VALUE;
+            for (int j = 0; j < columnLength; j++){
+                if (matrix[i][j] < min){
+                    min = matrix[i][j];
+                    minimumValueInRowIndex = j;
+                }
+            }
+            boolean flag = true;
+            for (int row = 0; row < rowLength; row++){
+                if (matrix[row][minimumValueInRowIndex] > min) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                al.add(min);
+            }
+            
+        }
+        return al;
+    }
+}
