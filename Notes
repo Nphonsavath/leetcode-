@@ -177,3 +177,6 @@ You only have two baskets, and each basket can only hold a single type of fruit.
 Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.
 Once you reach a tree with fruit that cannot fit in your baskets, you must stop. Given the integer array fruits, return the maximum number of fruits you can pick.
   IDEA: use hashmap, keep track of elements and frequency, if hm.size() > 2 remove start variable element and remove if value = 0;
+
+1380. Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order.A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+  IDEA: loop through every element and find min value (grab its j index as well) iterate through the column that value was in, use flag. if you iterate through that column and there is an element bigger. set flag to false and break if you want
