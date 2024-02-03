@@ -187,3 +187,7 @@ If target is not found in the array, return [-1, -1].You must write an algorithm
 
 1493. Longest Subarray of 1's After Deleting One Element: Given a binary array nums, you should delete one element from it. Return the size of the longest non-empty subarray containing only 1's in the resulting array. Return 0 if there is no such subarray.
   IDEA: keep track of zeros, able to have 1 zero. if more, start from left and move pointer until you are past a 0. Math.max(var, i-start);
+
+35. Search Insert Position: Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You must write an algorithm with O(log n) runtime complexity.
+  IDEA: once again log(n), use binary search. return start if cant find.
