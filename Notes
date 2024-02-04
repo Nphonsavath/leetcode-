@@ -196,3 +196,7 @@ You must write an algorithm with O(log n) runtime complexity.
 all the versions after a bad version are also bad. Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
 You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
   IDEA: binary search
+
+744. Find Smallest Letter Greater Than Target: You are given an array of characters letters that is sorted in non-decreasing order, and a character target. There are at least two different characters in letters.
+Return the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.
+  IDEA: binary search, use modulus to handle wrap around (aka return element 0 if not found)
