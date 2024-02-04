@@ -211,3 +211,7 @@ Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses s
 Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
 Return the minimum integer k such that she can eat all the bananas within h hours.
   IDEA: binary search, feasible function is hoursNeeded += Math.ceil((double)bananas/mid), 
+
+632. Maximum Average Subarray I: You are given an integer array nums consisting of n elements, and an integer k.
+Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.
+  IDEA: iterate through i < k, that is first sub array and first max. then iterate through rest where i+k < nums.length and remove nums[i] and add nums[i+k]
