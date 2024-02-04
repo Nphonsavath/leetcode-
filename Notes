@@ -205,3 +205,9 @@ Return the smallest character in letters that is lexicographically greater than 
 The ith package on the conveyor belt has a weight of weights[i]. Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship.
 Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within days days. 
   IDEA: binary search, need to find if values are feasiable. lower bound is biggest packaage, upper bound is sum of all packages. keep adding packages until > mid (capacity to test) and incremeent days. checck if daysNeeded > days, if so move pointers
+
+875. Koko Eating Bananas: Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
+Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.
+Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
+Return the minimum integer k such that she can eat all the bananas within h hours.
+  IDEA: binary search, feasible function is hoursNeeded += Math.ceil((double)bananas/mid), 
