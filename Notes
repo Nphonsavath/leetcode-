@@ -232,3 +232,6 @@ You are also given an integer k, which is the desired number of consecutive blac
 In one operation, you can recolor a white block such that it becomes a black block.
 Return the minimum number of operations needed such that there is at least one occurrence of k consecutive black blocks.
   IDEA: "consecutive" use window. fixed size of k. sliding window
+
+1004. Max Consecutive Ones III: Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+  IDEA: sliding window variable, R < nums.length, count zeros and while zeroes > k keep goign until remove zeroes
