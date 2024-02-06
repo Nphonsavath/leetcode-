@@ -1,0 +1,21 @@
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        int L = 0, R = 0, currentMax = 0, max = 0;
+        HashSet<Integer> hs = new HashSet<>();
+
+        while (R < nums.length) {
+            if (hs.add(nums[R])) {
+                currentMax += nums[R];
+                R++;
+            } else {
+                hs.remove(nums[L]);
+                currentMax -= nums[L];
+                L++;
+            }
+            max = Math.max(max, currentMax);
+            
+        }
+
+        return max;
+    }
+}
