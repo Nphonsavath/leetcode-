@@ -1,0 +1,26 @@
+class Solution {
+    public int maxFreq(String s, int maxLetters, int minSize, int maxSize) {
+        HashMap<String, Integer> hm = new HashMap<>();
+        int L = 0, R = minSize, solution = 0;
+
+        while (R <= s.length()) {
+            String substring = s.substring(L, R);
+            hm.put(substring, hm.getOrDefault(substring, 0) + 1);
+            L++;
+            R++;
+        }
+
+        for (String stringKey : hm.keySet()) {
+            HashMap<Character, Integer> freq = new HashMap<>();
+            for (int i = 0; i < stringKey.length(); i++) {
+                freq.put(stringKey.charAt(i), hm.getOrDefault(stringKey.charAt(i), 0)+1);
+            }
+            if (freq.size() <= maxLetters) {
+                solution = Math.max(solution, hm.get(stringKey));
+            }
+            
+        }
+
+        return solution;
+    }
+}
