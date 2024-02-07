@@ -238,3 +238,8 @@ Return the minimum number of operations needed such that there is at least one o
 
 1493. Longest Subarray of 1's After Deleting One Element: Given a binary array nums, you should delete one element from it. Return the size of the longest non-empty subarray containing only 1's in the resulting array. Return 0 if there is no such subarray.
   IDEA: sliding window variable, R < nums.length, count zeroes and while zeroes > 1 keep going until remove zeroes
+
+1297. Given a string s, return the maximum number of occurrences of any substring under the following rules:
+The number of unique characters in the substring must be less than or equal to maxLetters.
+The substring size must be between minSize and maxSize inclusive.
+  IDEA: use min size since max size will always contain the min. use constant sliding window of L = 0; R = minSize. add the substring(L, 0) to hashmap. iterate through the keySets and add each character to new hashmap, if newHashmap.size() <= maxLetters compare max
