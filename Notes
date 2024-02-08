@@ -253,3 +253,7 @@ An array b is called to be a subarray of a if it forms a contiguous subsequence 
 209. Minimum Size Subarray Sum: Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
   IDEA: sliding window variable size, add nums[R]. check while sum >= target, calculate new windowMin and subtract nums[L].
 
+2269. Find the K-Beauty of a Number: The k-beauty of an integer num is defined as the number of substrings of num when it is read as a string that meet the following conditions:
+It has a length of k. It is a divisor of num. Given integers num and k, return the k-beauty of num.
+Note: Leading zeros are allowed. 0 is not a divisor of any value. A substring is a contiguous sequence of characters in a string.
+  IDEA: sliding window fixed k. convert int to stringg using String.valueOf. iterate through i+k <= num.length. create new value using Integer.parseInt(substring(i, i+k)). check validity
