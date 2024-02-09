@@ -1,0 +1,26 @@
+class Solution {
+    public int[] getAverages(int[] nums, int k) {
+        int[] solution = new int[nums.length]; //create array of size nums.length;
+        int kradius = 2*k+1; //radius size
+        long windowSum = 0; //current window sum
+
+        Arrays.fill(solution, -1); //fill entire array with -1, default
+        
+        if (kradius > nums.length) { //if k is too big, bigger than nums.length all will just be -1, return 
+            return solution;
+        }
+
+        for (int i = 0; i < kradius; i++) { //otherwise add all the nums from 0 to end of radius size
+            windowSum += nums[i];
+        }
+
+        for (int j = k; j + k < nums.length; j++) { //if we were able to do the above, tha means we begin at k
+            solution[j] = (int) (windowSum/kradius); //need to type cast as we made sum long as it was too big for int
+            if (j+k+1 < nums.length) { //check if we can move window over
+                windowSum = windowSum - nums[j-k] + nums[j+k+1];
+            }
+            
+        }
+        return solution;
+    }
+}
