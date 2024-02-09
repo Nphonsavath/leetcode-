@@ -1,0 +1,30 @@
+class Solution {
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+        
+        int maxConsecutive = Integer.MIN_VALUE;
+        int trues = 0, falses = 0;
+        int start = 0;
+
+        for( int i = 0; i < answerKey.length(); i++) { //iterate through answerKey
+            if (answerKey.charAt(i) == 'T') { //keep count of trues and falses
+                trues++;
+            } else {
+                falses++;
+            }
+
+            while (Math.min(trues, falses) > k) { //if minority > k that means you changed too many
+                if (answerKey.charAt(start) == 'T') {
+                    trues--;
+                } else {
+                    falses--;
+                }
+                start++;
+            }
+
+            maxConsecutive = Math.max(maxConsecutive, i-start+1);
+        }
+
+        return maxConsecutive;
+
+    }
+}
