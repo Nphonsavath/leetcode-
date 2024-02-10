@@ -264,3 +264,7 @@ then the k-radius average is -1. Build and return an array avgs of length n wher
 The average of x elements is the sum of the x elements divided by x, using integer division. The integer division truncates toward zero, which means losing its fractional part.
 For example, the average of four elements 2, 3, 1, and 5 is (2 + 3 + 1 + 5) / 4 = 11 / 4 = 2.75, which truncates to 2
   IDEA: initialize array to default, check if radius size > array. otherwise itialize window to be kradius, and start loop at k.
+
+1358. Given a string s consisting only of characters a, b and c.
+Return the number of substrings containing at least one occurrence of all these characters a, b and c.
+  IDEA: create bucket array int[3]. iterate through all chars in string, add array[c-'a']++, while there is an occurance of all, subtract array[string.charAt(start)-'a']--, increase start, always add start to solution.
