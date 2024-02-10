@@ -273,3 +273,8 @@ Return the number of substrings containing at least one occurrence of all these 
 |x - y| <= min(x, y) You need to select two integers from nums such that they form a strong pair and their bitwise XOR is the maximum among all strong pairs in the array. Return the maximum XOR value out of all possible strong pairs in the array nums.
 Note that you can pick the same integer twice to form a pair.
   IDEA: nested for loop, check condition and keep max xor pair
+
+2024. Maximize the Confusion of an Exam: A teacher is writing a test with n true/false questions, with 'T' denoting true and 'F' denoting false. He wants to confuse the students by maximizing the number of consecutive questions with the same answer 
+(multiple trues or multiple falses in a row). You are given a string answerKey, where answerKey[i] is the original answer to the ith question. In addition, you are given an integer k, the maximum number of times you may perform the following operation:
+Change the answer key for any question to 'T' or 'F' (i.e., set answerKey[i] to 'T' or 'F'). Return the maximum number of consecutive 'T's or 'F's in the answer key after performing the operation at most k times.
+  IDEA: iterate through string, keep track of trues and falses. while min(trues,falses) > k keep removing from start. keep max of (i-start+1)
