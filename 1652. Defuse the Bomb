@@ -1,0 +1,30 @@
+class Solution {
+    public int[] decrypt(int[] code, int k) {
+        
+        int[] solution = new int[code.length];
+        
+
+        if (k > 0) {
+            for (int i = 0; i < code.length; i++) {
+                int newSum = 0;
+                for (int j = 1; j <= k; j++) {
+                    newSum += code[(i+j) % code.length];
+                }
+                solution[i] = newSum;
+            }
+        }
+        else if (k < 0) {
+            for (int i = 0; i < code.length; i++) {
+                int newSum = 0;
+                for (int j = 1; j <= Math.abs(k); j++) {
+                    newSum += code[(i-j+code.length) % code.length];
+                }
+                solution[i] = newSum;
+            }
+        }
+        
+
+        return solution;
+
+    }
+}
