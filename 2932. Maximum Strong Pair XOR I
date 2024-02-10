@@ -1,0 +1,15 @@
+class Solution {
+    public int maximumStrongPairXor(int[] nums) {
+        int maximumXorPair = Integer.MIN_VALUE;
+
+        for (int R = 0; R < nums.length; R++) {
+            for (int L = 0; L < nums.length; L++) {
+                if (Math.abs(nums[L]-nums[R]) <= Math.min(nums[L], nums[R])) {
+                    maximumXorPair = Math.max(maximumXorPair, (nums[L] ^ nums[R]));
+                }
+            }
+            
+        }
+        return maximumXorPair;
+    }
+}
