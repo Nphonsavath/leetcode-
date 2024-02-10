@@ -268,3 +268,8 @@ For example, the average of four elements 2, 3, 1, and 5 is (2 + 3 + 1 + 5) / 4 
 1358. Given a string s consisting only of characters a, b and c.
 Return the number of substrings containing at least one occurrence of all these characters a, b and c.
   IDEA: create bucket array int[3]. iterate through all chars in string, add array[c-'a']++, while there is an occurance of all, subtract array[string.charAt(start)-'a']--, increase start, always add start to solution.
+
+2932. You are given a 0-indexed integer array nums. A pair of integers x and y is called a strong pair if it satisfies the condition:
+|x - y| <= min(x, y) You need to select two integers from nums such that they form a strong pair and their bitwise XOR is the maximum among all strong pairs in the array. Return the maximum XOR value out of all possible strong pairs in the array nums.
+Note that you can pick the same integer twice to form a pair.
+  IDEA: nested for loop, check condition and keep max xor pair
