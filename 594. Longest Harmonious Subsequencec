@@ -1,0 +1,24 @@
+class Solution {
+    public int findLHS(int[] nums) {
+        
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int maxFreq = 0;
+        
+        for (int num : nums) {
+            hm.put(num, hm.getOrDefault(num, 0)+1);
+        }
+
+        if (hm.size() == 1) {
+            return maxFreq;
+        }
+
+        for (int keys : hm.keySet()) {
+            if (hm.get(keys) > 0 && hm.getOrDefault(keys+1, 0) > 0) {
+                maxFreq = Math.max(hm.get(keys) + hm.getOrDefault(keys+1, 0), maxFreq);
+            }
+            
+        }
+
+        return maxFreq;
+    }
+}
