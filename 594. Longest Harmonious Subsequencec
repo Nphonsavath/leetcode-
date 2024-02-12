@@ -22,3 +22,31 @@ class Solution {
         return maxFreq;
     }
 }
+
+class Solution {
+    public int findLHS(int[] nums) {
+
+        int L = 0;
+        int R = 1;
+        int longestSubsequence = 0;
+        Arrays.sort(nums);
+
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        while (R < nums.length) {
+            int diff = nums[R] - nums[L];
+            if (diff == 1) {
+                longestSubsequence = Math.max(longestSubsequence, R-L+1);
+            }
+            if (diff <= 1) {
+                R++;
+            } else {
+                L++;
+            }
+        }
+
+        return longestSubsequence;
+    }
+}
