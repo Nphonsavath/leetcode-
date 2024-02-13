@@ -1,0 +1,30 @@
+class Solution {
+    public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
+        int maxSatisfied = 0;
+        int currentSatisfied = 0;
+        int extraSatisfied = 0; // Track the additional satisfied customers when grumpy
+        int maxExtraSatisfied = 0; // Track the maximum additional satisfied customers in a window
+
+        for(int i = 0; i < customers.length; i++) {
+            if (grumpy[i] == 0) {
+                currentSatisfied += customers[i];
+            } else {
+                extraSatisfied += customers[i];
+            }
+
+            // Slide the window when it exceeds the given minutes
+            if (i >= minutes) {
+                if (grumpy[i - minutes] == 1) {
+                    extraSatisfied -= customers[i - minutes];
+                }
+            }
+
+            maxExtraSatisfied = Math.max(maxExtraSatisfied, extraSatisfied);
+        }
+
+        maxSatisfied = currentSatisfied + maxExtraSatisfied;
+        
+        // If the window size exceeds the length of arrays, return the maximum satisfied customers
+        return Math.max(maxSatisfied, currentSatisfied);
+    }
+}
