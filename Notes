@@ -293,3 +293,8 @@ If k == 0, replace the ith number with 0.
 As code is circular, the next element of code[n-1] is code[0], and the previous element of code[0] iscode[n-1]. Given the circular array code and an integer key k, return the decrypted code to defuse the bomb!
   IDEA: first loop determine which element to change, second loop calculates new sum. starts at j=1, and continues j <=k. formula is [(j+i) % code.length]. %code.length causes wrap around, it is j+i as i would just change current element, but adding j offsets
   by 1. for k < 0, same thing j =1 and continues until j <= Math.abs(k). but since starting from end, do [(code.length-j-i) % code.length];
+
+594. Longest Harmonious Subsequence: We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
+Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
+A subsequence of array is a sequence that can be derived from the array by deleting some or no elements without changing the order of the remaining elements.
+  IDEA: two pointer, L = 0, R = 1. while R < nums.length; if (nums[R] - nums[L] == 1) calculate new max R-L+1. if (<= 1, R++, else L++)
