@@ -1,5 +1,5 @@
 217. Contains Duplicate: Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
-  IDEA: Add to hashmap/hashset to keep track of if it appeared and check
+  IDEA: Add to hashmap/hashset to keep track of if it appeared and check.
 
 242. Valid Anagram: An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
   IDEA: Can use hashmap to keep track of all the letters that appear, or use array and increment index of ascii value and decrement index of ascii to ensure it is at 0 or not
