@@ -1,0 +1,23 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int[] solution = new int[nums.length];
+        int start = 0, end = nums.length-1, current = end;
+        
+
+        while (current >= 0) {
+            int squaredStart = nums[start] * nums[start];
+            int squaredEnd = nums[end] * nums[end];
+            if (squaredStart > squaredEnd) {
+                solution[current] = squaredStart;
+                start++;
+            } else {
+                solution[current] = squaredEnd;
+                end--;
+            }
+            current--;
+        }
+
+        return solution;
+
+    }
+}
