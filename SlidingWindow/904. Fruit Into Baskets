@@ -1,0 +1,22 @@
+class Solution {
+    public int totalFruit(int[] fruits) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int maxDistance = Integer.MIN_VALUE;
+        int L = 0, R = 0;
+
+        while (R < fruits.length) {
+            hm.put(fruits[R], hm.getOrDefault(fruits[R], 0)+1);
+
+            while (hm.size() > 2) {
+                hm.put(fruits[L], hm.get(fruits[L])-1);
+                hm.remove(fruits[L],0);
+                L++;
+            }
+            
+            maxDistance = Math.max(maxDistance, R-L+1);
+            R++;
+        }
+
+        return maxDistance; 
+    }
+}
