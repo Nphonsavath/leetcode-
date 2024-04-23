@@ -1,0 +1,28 @@
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        
+        int[] bucket1 = new int[26];
+        int[] bucket2 = new int[26];
+        List<Integer> solution = new ArrayList<>();
+        int start = 0;
+
+        for (int i = 0; i < p.length(); i++) {
+            bucket1[p.charAt(i)-'a']++;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            bucket2[s.charAt(i)-'a']++;
+
+            if (i >= p.length()) {
+                bucket2[s.charAt(start)-'a']--;
+                start++;
+            }
+
+            if (Arrays.equals(bucket1, bucket2)) {
+                solution.add(start);
+            }
+        }
+
+        return solution;
+    }
+}
