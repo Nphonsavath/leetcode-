@@ -1,0 +1,35 @@
+class Solution {
+    public boolean checkInclusion(String s1, String s2) {
+        HashMap<Character, Integer> hm = new HashMap<>();
+        int L = 0;
+
+        for (int i = 0; i < s1.length(); i++){
+            hm.put(s1.charAt(i), hm.getOrDefault(s1.charAt(i), 0)+1);
+        }
+        int notMatchedYet = hm.size();
+
+        for (int R = 0; R < s2.length(); R++) {
+            if (hm.containsKey(s2.charAt(R))) {
+                hm.put(s2.charAt(R), hm.get(s2.charAt(R))-1);
+                if (hm.get(s2.charAt(R)) == 0) {
+                    notMatchedYet--;
+                }
+            }
+
+            if (R-L+1 == s1.length()) {
+                if (notMatchedYet == 0) {
+                    return true;
+                }
+
+                if (hm.containsKey(s2.charAt(L))) {
+                    hm.put(s2.charAt(L), hm.get(s2.charAt(L))+1);
+                    if (hm.get(s2.charAt(L)) == 1) {
+                        notMatchedYet++;
+                    }
+                }
+                L++;
+            }
+        }
+        return false;
+    }
+}
