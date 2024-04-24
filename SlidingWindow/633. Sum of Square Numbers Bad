@@ -1,0 +1,17 @@
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        long L = 0, R = 0;
+
+        HashMap<Long, Long> hm = new HashMap<>();
+
+        while(R*R <= c) {
+            hm.put(R*R, R);
+            if (hm.containsKey(c-R*R)) {
+                return true;
+            }
+            R++;
+        }
+
+        return false;
+    }
+}
