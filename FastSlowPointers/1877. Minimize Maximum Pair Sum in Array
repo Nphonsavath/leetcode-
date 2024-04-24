@@ -1,0 +1,17 @@
+class Solution {
+    public int minPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int L = 0, R = nums.length-1;
+        int SmallestMax = 0;
+        
+       
+        while (L < R ){
+            int currentRunningSum = nums[L] + nums[R];
+            SmallestMax = Math.max(SmallestMax, currentRunningSum);
+            L++;
+            R--;
+        }
+
+        return SmallestMax;
+    }
+}
