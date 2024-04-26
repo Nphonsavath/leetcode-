@@ -1,0 +1,48 @@
+class Solution {
+    public int threeSumMulti(int[] arr, int target) {
+        Arrays.sort(arr);
+        int counter = 0, mod = 1000000007;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int j = i+1;
+            int k = arr.length-1;
+            while (j < k) {
+                if (arr[i] + arr[j] + arr[k] == target) {
+
+                    if (arr[j] == arr[k]) {
+                        counter += nCr(k-j+1);
+                        counter %= mod;
+                        break;
+                    }
+
+                    int occuranceFirst = 1, occuranceLast = 1;
+                    while (j + 1 < k && arr[j] == arr[j+1]) {
+                        j++;
+                        occuranceFirst++;
+                    }
+
+                    while (j + 1 < k && arr[k] == arr[k-1]) {
+                        k--;
+                        occuranceLast++;
+                    }
+
+                    counter += (occuranceFirst*occuranceLast);
+                    counter %= mod;
+                    j++;
+                    k--;
+                } else if (arr[i] + arr[j] + arr[k] > target) {
+                    k--;
+                } else {
+                    j++;
+                }
+            }
+        }
+
+        return counter % mod;
+    }
+
+    private static int nCr(int n) {
+        return n * (n - 1) / 2;
+    }
+}
