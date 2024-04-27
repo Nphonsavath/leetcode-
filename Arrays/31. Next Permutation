@@ -1,0 +1,47 @@
+class Solution {
+    public void nextPermutation(int[] nums) {
+
+        int pivot = findPivotIndex(nums)-1;
+        if (pivot != -1) {
+            int next = findIndexGreatest(nums, nums[pivot]);
+            swap(nums, pivot, next);
+        }
+        reverseArrayFromIndex(nums, pivot+1);
+    }
+    
+
+
+    int findPivotIndex(int[] nums) {
+        for (int i = nums.length-1; i > 0; i--) {
+            if (nums[i-1] < nums[i]) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    int findIndexGreatest(int[] nums, int pivotValue) {
+        for (int i = nums.length-1; i >= 0; i--){
+            if (nums[i] > pivotValue) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    void reverseArrayFromIndex(int[] nums, int start) {
+        int end = nums.length-1;
+        while (start < end) {
+            swap(nums, start, end);
+            start++;
+            end--;
+        }
+    }
+
+    void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+
+}
