@@ -1,0 +1,67 @@
+class Solution {
+    public int nextGreaterElement(int n) {
+
+        int[] intAsCharArray = intToCharArray(n);
+        int pivotIndex = pivotIndex(intAsCharArray)-1;
+        if (pivotIndex == -1) {
+            return -1;
+        }
+        if (pivotIndex != -1) {
+            int next = greatestIndex(intAsCharArray, intAsCharArray[pivotIndex]);
+            swap(intAsCharArray, pivotIndex, next);
+        }
+        reorderFromIndex(intAsCharArray, pivotIndex+1);
+        StringBuilder sb = new StringBuilder();
+        for (int num : intAsCharArray) {
+            sb.append(num);
+        }
+        long solution = Long.parseLong(sb.toString());
+        
+        return (solution > Integer.MAX_VALUE) ? -1 : (int)solution;
+
+    }
+
+        int[] intToCharArray(int n) {
+            String temp = Integer.toString(n);
+            int[] digitArray = new int[temp.length()];
+            for (int i = 0; i < temp.length(); i++) {
+                digitArray[i] = temp.charAt(i) - '0';
+            }
+            return digitArray;
+        }
+        
+        int pivotIndex(int[] nums) {
+            for (int i = nums.length-1; i > 0; i--) {
+                if (nums[i-1] < nums[i]) {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
+        int greatestIndex(int[] nums, int pivotValue) {
+            for (int i = nums.length-1; i >= 0; i--) {
+                if (nums[i] > pivotValue) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        void reorderFromIndex(int[] nums, int start) {
+            int end = nums.length -1;
+            while (start < end) {
+                swap(nums, start, end);
+                start++;
+                end--;
+            }
+        }
+
+        void swap(int[] nums, int start, int end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+        }
+
+    
+}
