@@ -1,0 +1,22 @@
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        char[] sAsCharArray = s.toCharArray();
+        int L = 0, R = s.length()-1;
+
+        while (L<R) {
+            if (!Character.isLetter(sAsCharArray[L])) {
+                L++;
+            } else if (!Character.isLetter(sAsCharArray[R])) {
+                R--;
+            } else {
+                char temp = sAsCharArray[L];
+                sAsCharArray[L] = sAsCharArray[R];
+                sAsCharArray[R] = temp;
+                L++;
+                R--;
+            }
+        }
+
+        return new String(sAsCharArray);
+    }
+}
