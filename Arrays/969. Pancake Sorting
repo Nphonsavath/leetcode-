@@ -1,0 +1,38 @@
+class Solution {
+    public List<Integer> pancakeSort(int[] arr) {
+        
+        List<Integer> solution = new ArrayList<>();
+        for (int i = arr.length; i > 1; i--) {
+            int maxIndex = findMaxIndex(arr, i);
+            flip(arr, maxIndex);
+            solution.add(maxIndex+1);
+            flip(arr, i - 1);
+            solution.add(i);
+        }
+        return solution;
+
+    }
+
+    void flip(int[] arr, int k) {
+        int temp, start = 0;
+        while (start < k) {
+            temp = arr[k];
+            arr[k] = arr[start];
+            arr[start] = temp;
+            start++;
+            k--;
+        }
+    }
+
+    int findMaxIndex(int[] arr, int k) {
+        int currentMax = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = 0; i < k; i++) {
+            if (arr[i] > currentMax) {
+                currentMax = arr[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+}
