@@ -1,0 +1,16 @@
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        int L = 0, R = word.indexOf(ch); // 3
+        char[] solution = word.toCharArray();
+
+        while (L < R) {
+            char temp = solution[L];
+            solution[L] = solution[R];
+            solution[R] = temp;
+            L++;
+            R--;
+        }
+
+        return new String(solution);
+    }
+}
