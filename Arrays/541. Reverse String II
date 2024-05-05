@@ -1,0 +1,23 @@
+class Solution {
+    public String reverseStr(String s, int k) {
+        int L = 0, R = 2*k-1;
+        char[] solution = s.toCharArray();
+
+        while (L < solution.length) {
+            reverse(solution, L, Math.min(L+k-1, solution.length-1)); //key
+            L=R+1;
+            R+=2*k;
+        }
+        return new String(solution);
+    }
+
+    void reverse(char[] charArray, int startIndex, int endIndex) {
+        while (startIndex <= endIndex){
+            char temp = charArray[startIndex];
+            charArray[startIndex] = charArray[endIndex];
+            charArray[endIndex] = temp;
+            startIndex++;
+            endIndex--;
+        }
+    }
+}
