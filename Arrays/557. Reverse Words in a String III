@@ -1,0 +1,27 @@
+class Solution {
+    public String reverseWords(String s) {
+        int L = 0, R = 0;
+        char[] solution = s.toCharArray();
+
+        while (R < s.length()) {
+            
+            if (solution[R] == ' ') {
+                swap(solution, L, R-1);
+                L = R+1;
+            }
+            R++;
+        }
+        swap(solution, L, s.length()-1);
+        return new String(solution);
+    }
+
+    void swap (char[] solution, int start, int end) {
+        while (start < end) {
+            char temp = solution[start];
+            solution[start] = solution[end];
+            solution[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
