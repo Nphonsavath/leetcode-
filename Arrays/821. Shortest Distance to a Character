@@ -1,0 +1,25 @@
+class Solution {
+    public int[] shortestToChar(String s, char c) {
+        int[] answer = new int[s.length()];
+        int lastSeen = s.indexOf(c);
+        int lastSeenReverse = s.lastIndexOf(c);
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == c) {
+                lastSeen = i;
+            } else {
+                answer[i] = i-lastSeen;
+            }
+        }
+
+        for (int i = s.length()-1; i>= 0; i--){
+            if (s.charAt(i) == c) {
+                lastSeenReverse = i;
+            } else {
+                answer[i] = Math.abs(Math.min(answer[i], Math.abs(i-lastSeenReverse)));
+            }
+        }
+
+        return answer;
+    }
+}
