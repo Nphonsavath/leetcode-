@@ -1,25 +1,24 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        int slow = 0, fast = 0;
-        while (nums[slow] != nums[fast]) {
-            System.out.println(slow + " " + fast);
-            slow+=1;
-            fast+= 2;
-            if (slow >= nums.length) {
-                slow %= nums.length;
+        int slow = nums[0]; //basically since there values from [1,n] and of size n+1, 1 duplicate value
+        int fast = nums[0]; //and therefore each point to different element
+
+        while (true) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+
+            if (slow == fast) {
+                break;
             }
-            if (fast >= nums.length) {
-                fast %= nums.length;
-            } 
         }
 
-        int slow2 = 0;
-        while (nums[fast] != nums[slow2]) {
-            fast++;
-            slow2++;
+        int fromStart = nums[0];
+        while (fromStart != fast) {
+            fromStart = nums[fromStart];
+            fast = nums[fast];
         }
 
-        return nums[slow2];
+        return fromStart;
     }
     
 }
