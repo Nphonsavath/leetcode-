@@ -1,0 +1,13 @@
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int solutionCount = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1);
+            solutionCount += hm.get(nums[i])-1;
+        }
+
+        return solutionCount;
+    }
+}
