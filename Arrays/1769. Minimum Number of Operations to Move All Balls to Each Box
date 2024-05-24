@@ -1,0 +1,17 @@
+class Solution {
+    public int[] minOperations(String boxes) {
+        int[] solution = new int[boxes.length()];
+        int cost = 0;
+
+        for (int i = 0; i < boxes.length(); i++) {
+            cost = 0;
+            for (int j = 0; j < boxes.length(); j++){
+                if (boxes.charAt(j) == '1') {
+                    cost += Math.abs(i-j);
+                }
+            }
+            solution[i] = cost;
+        }
+        return solution;
+    }
+}
