@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isArraySpecial(int[] nums) {
+        int L = 0, R = 1;
+        if (nums.length == 1){ 
+            return true;
+        }
+        while (R < nums.length){
+            if ((nums[L] % 2 == nums[R] % 2) || (nums[L] % 2 == nums[R] % 2)) {
+                return false;
+            }
+            R++;
+            L++;
+        }
+
+        return true;
+    }
+}
