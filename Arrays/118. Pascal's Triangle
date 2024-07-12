@@ -1,19 +1,19 @@
 class Solution {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> solution = new ArrayList<>();
-        List<Integer> first = new ArrayList<>(Arrays.asList(1));
-        solution.add(first);
+        List<List<Integer>> solution = new ArrayList<>(); //create solution
+        List<Integer> first = new ArrayList<>(Arrays.asList(1)); //1 <= numRows <= 30 atleast 1 row
+        solution.add(first); //add dat
 
-        for (int i = 1; i < numRows; i++){
+        for (int i = 1; i < numRows; i++){ //iterate through remaining rows
             List<Integer> row = new ArrayList<>();
-
-            row.add(1); //end left
-            for (int j = 1; j < i; j++){ //middle
-                row.add(solution.get(i-1).get(j-1) + solution.get(i-1).get(j));
+            row.add(1); //always start with 1
+            for (int j = 1; j < i; j++) {
+                row.add(solution.get(i-1).get(j-1) + solution.get(i-1).get(j)); //will get previous row with solution.get(i-1), and we need the index of j and its prev
             }
-            row.add(1); //end right
+            row.add(1); //always end with 1
             solution.add(row);
         }
+
         return solution;
     }
 }
