@@ -12,3 +12,22 @@ class Solution {
         return maximum;
     }
 }
+
+'class Solution {
+    public int findMaxK(int[] nums) {
+        HashSet<Integer> hm = new HashSet<>();
+        int maximum = -1;
+        for (int num : nums){
+            if (num < 0){
+                hm.add(num);
+            }
+        }
+        for (int num : nums){
+            if (num > 0 && hm.contains(num*-1)){
+                maximum = Math.max(Math.abs(num), maximum);
+            }
+        }
+        
+        return maximum;
+    }
+}'
