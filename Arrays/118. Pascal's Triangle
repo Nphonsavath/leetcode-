@@ -2,7 +2,7 @@ class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> solution = new ArrayList<>(); //create solution
         List<Integer> first = new ArrayList<>(Arrays.asList(1)); //1 <= numRows <= 30 atleast 1 row
-        solution.add(first); //add dat
+        solution.add(first); //add that
 
         for (int i = 1; i < numRows; i++){ //iterate through remaining rows
             List<Integer> row = new ArrayList<>();
