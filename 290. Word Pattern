@@ -1,0 +1,26 @@
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        String[] sAsArray = s.split(" ");
+        if (pattern.length() != sAsArray.length){
+            return false;
+        }
+
+        HashMap<Character, String> hm = new HashMap<>();
+        for (int i = 0; i < sAsArray.length; i++){
+            if (hm.containsKey(pattern.charAt(i))){
+                if (!hm.get(pattern.charAt(i)).equals(sAsArray[i])){
+                    return false;
+                }
+            } else {
+                hm.put(pattern.charAt(i), sAsArray[i]);
+            }
+        }
+
+        HashSet<Object> unique = new HashSet<Object>(hm.values());
+        if (unique.size() != hm.size()){
+            return false;
+        }
+
+        return true;
+    }
+}
