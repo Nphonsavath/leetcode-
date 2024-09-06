@@ -314,3 +314,6 @@ Simple, just remeber to create variable private that utilizes int[][]rectangle a
 
 3190. Find Minimum Operations to Make All Elements Divisible by Three
 Since the end of digits 1,2,4,5,7,8 only require 1 operation to make it divisible by 3, check if remainder is 0.
+
+1282. Group the People Given the Group Size They Belong To
+use bucket of array of List<Integer> aka List<Integer>[] buckets = new List[groupSizes.length]+1. Iterate through groupSizes and if bucket is empty make new arrayList and keep adding to index. If it gets full add that List<integer> to List<List<Integer>> and make a new arrayList for that bucket.
