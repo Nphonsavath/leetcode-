@@ -11,3 +11,19 @@ class Solution {
         return solutionCount;
     }
 }
+
+class Solution {
+    public int countPairs(List<Integer> nums, int target) {
+        Collections.sort(nums);
+        int L = 0, R = nums.size()-1, solutionCount = 0;
+        while (L < R){
+            if (nums.get(L) + nums.get(R) < target){
+                solutionCount += R-L;
+                L++;
+            } else {
+                R--;
+            }
+        }
+        return solutionCount;
+    }
+}
