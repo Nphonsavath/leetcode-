@@ -1,0 +1,17 @@
+class Solution {
+    public int[][] largestLocal(int[][] grid) {
+        int[][] maxLocal = new int[grid.length-2][grid[0].length-2];
+        for (int k = 0; k < grid.length-2; k++){
+            for (int l = 0; l < grid[0].length-2; l++){
+                int currMax = Integer.MIN_VALUE;
+                for (int i = k; i < 3+k; i ++){
+                    for (int j = l; j < 3+l; j++){
+                        currMax = Math.max(currMax, grid[i][j]);
+                    }
+                }
+                maxLocal[k][l] = currMax;
+            }
+        }
+        return maxLocal;
+    }
+}
