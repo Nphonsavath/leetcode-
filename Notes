@@ -308,3 +308,6 @@ The bookstore owner knows a secret technique to keep themselves not grumpy for m
 
 2433. Find The Original Array of Prefix Xor
 Basically xor is reversible.
+
+1476. Subrectangle Queries
+Simple, just remeber to create variable private that utilizes int[][]rectangle and define that private var = rectangle.
