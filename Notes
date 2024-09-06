@@ -305,3 +305,6 @@ When the bookstore owner is grumpy, the customers of that minute are not satisfi
 The bookstore owner knows a secret technique to keep themselves not grumpy for minutes consecutive minutes, but can only use it once. Return the maximum number of customers that can be satisfied throughout the day.
   IDEA: keep track of both current satisified, and potentialSatisfiedIfNotGrumpy. keep a window for potentialSatisfiedIfNotGrumpy if (i >= minutes). keep calculating a potential max. have a total satisfied. return
   Math.max(total, current)
+
+2433. Find The Original Array of Prefix Xor
+Basically xor is reversible.
