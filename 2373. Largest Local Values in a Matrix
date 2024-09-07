@@ -1,8 +1,9 @@
 class Solution {
     public int[][] largestLocal(int[][] grid) {
-        int[][] maxLocal = new int[grid.length-2][grid[0].length-2];
-        for (int k = 0; k < grid.length-2; k++){
-            for (int l = 0; l < grid[0].length-2; l++){
+        int localLength = grid.length-2;
+        int[][] maxLocal = new int[localLength][localLength];
+        for (int k = 0; k < localLength; k++){
+            for (int l = 0; l < localLength; l++){
                 int currMax = Integer.MIN_VALUE;
                 for (int i = k; i < 3+k; i ++){
                     for (int j = l; j < 3+l; j++){
