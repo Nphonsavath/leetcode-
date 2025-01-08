@@ -1,0 +1,24 @@
+class Solution {
+    public int minimumLength(String s) {
+        int removed = 0;
+
+        int L = 0, R = s.length()-1;
+        
+        while (L < R ) {
+            if (s.charAt(L) != s.charAt(R)) {
+                return s.length()-removed;
+            }
+            char initial = s.charAt(L);
+            while (L <= R && s.charAt(L) == initial) {
+                L++;
+                removed++;
+            }
+
+            while (L <= R && s.charAt(R) == initial) {
+                R--;
+                removed++;
+            }
+        }
+        return s.length()-removed;
+    }
+}
