@@ -1,0 +1,31 @@
+Brute Force Solution
+class Solution:
+  def isAnagram(self, s: str, t:str) -> bool:
+    if len(s) != len(t):
+      return False
+
+    return sorted(s) == sorted(t)
+
+Time Complexity: O(n log n + m log m)
+Space Complexity: O(1) or O(n + m)
+  Python uses timesort which is O(1) in place sorting. This sorting happens within original array
+  However, merge sort would be O(n + m) due to additional space creating tem lists
+
+-------------------------------------------------
+
+Optimal Solution
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if (len(s) != len(t)):
+            return False
+
+        hmS, hmT = {}, {}
+
+        for i in range(len(s)):
+            hmS[s[i]] = hmS.get(s[i], 0) + 1
+            hmT[t[i]] = hmT.get(t[i], 0) + 1
+        
+        return hmS == hmT
+
+Time Complexity: O(n + m)
+Space Complexity: O(1)
