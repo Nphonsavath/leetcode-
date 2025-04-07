@@ -1,0 +1,28 @@
+These steps to solve leetcode will be used on 127. Word Lader
+
+1) Simplify Problem
+  "The inputs are these"
+  "We do this to the outputs"
+  "We get these as the output"
+  As clarifying questions and edge cases
+
+  Ex) The inputs are two strings, beginWord and endWord. We change one letter at a time in the beginWord to change it to a word in our wordList until we reach our end word. Our output is an integer representing how many words it took to get from beginWord to endWord,
+  unless this is impossible, in which our output is 0.
+  Test case
+  beginWord = hit
+  endWord = cog
+  wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
+  returns 5
+  Ask clarifying questions
+    is endWord guaranteed to be in the wordList
+    are these words case sensitive
+    if beginWord equals endWord do we return 1 or 0
+    if the wordList is empty, do we return 0
+
+2) Pattern Recognition
+  1) Straightforward solution talk though, space and time complexity
+  2) Optimal solution, check constraints. Ex) O (log (m+n)) = binary search. Check context of problem if not obvious
+
+3) Implementation Plan
+4) Coding time
+5) Debug
