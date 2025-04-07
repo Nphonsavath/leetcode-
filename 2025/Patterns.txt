@@ -1,1 +1,35 @@
+Linear
+  Arrays
+  Linked List
+  Strings
 
+  Two Pointers
+    Same Direction
+      Fast/Slow pointer for cycles or middle of list
+    Opposite Direction
+      Finding pairs, comparing elements on each end
+
+  Sliding Window extension of Two Pointers
+  
+  Binary Search O(log n)
+    Search algo for finding in sorted array, by dividing in half
+    Can be used on anything monotonic 
+
+
+Non-Linear
+  Trees (just a graph with no cycles)
+  Graphs (tree with cyles, need a visited set())
+
+  Breadth-First Search (BFS)
+    Explore level by level
+    Uses queue (FIFO)
+    Best for shortest path
+
+  Depth-First Search (DFS)
+    Dive deeper first
+    Uses stack (recursion)
+    Best for exploring all paths
+
+  Backtracking, extension of DFS
+    Need to built itself, unlike prebuilt structure for DFS
+    
