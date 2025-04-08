@@ -1,0 +1,36 @@
+Brute Force Approach
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        for i in range(9):
+            seen = set()
+            for j in range(9):
+                if board[i][j] == '.':
+                    continue
+                if board[i][j] in seen:
+                    return False
+                seen.add(board[i][j])
+        
+        for i in range(9):
+            seen = set()
+            for j in range(9):
+                if board[j][i] == '.':
+                    continue
+                if board[j][i] in seen:
+                    return False
+                seen.add(board[j][i])
+        
+        for i in range(9):
+            seen = set()
+            for j in range(3):
+                for k in range(3):
+                    row = (i//3) * 3 + j
+                    column = (i % 3) * 3 + k
+                    if board[row][column] == '.':
+                        continue
+                    if board[row][column] in seen:
+                        return False
+                    seen.add(board[row][column])
+        return True
+
+Time Complexity: O(n^2)
+Space Complexity: O(n)
