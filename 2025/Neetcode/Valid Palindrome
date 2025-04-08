@@ -1,0 +1,53 @@
+Two Pointer Approach
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        newStr = ''.join(char.lower() for char in s if char.isalnum())
+        L = 0
+        R = len(newStr)-1
+
+        while (L <= R):
+            if newStr[L] != newStr[R]:
+                return False;
+            L+=1
+            R-=1
+
+        return True
+
+1 <= s.length <= 1000
+s is made up of only printable ASCII characters.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+Can be optimized
+
+---------------------------------------------------------------------
+
+Two Pointer Approach Better
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        L = 0
+        R = len(s)-1
+
+        while (L < R):
+            while L < R and not (self.isAlphaNum(s[L])):
+                L+=1
+            while R > L and not (self.isAlphaNum(s[R])):
+                R-=1
+            if self.toLower(s[L]) != self.toLower(s[R]):
+                return False
+            L+=1
+            R-=1
+        return True
+
+    def toLower(self, c):
+        if ord('A') <= ord(c) <= ord('Z'):
+            return chr(ord(c) + 32)
+        return c
+    
+    def isAlphaNum(self, c):
+        if ord('A') <= ord(c) <= ord('Z') or ord('a') <= ord(c) <= ord('z') or ord('0') <= ord(c) <= ord('9'):
+            return True
+        return False
+
+Time Complexity: O(n)
+Space Complexity: O(1)
