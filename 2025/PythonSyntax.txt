@@ -6,4 +6,7 @@ Heap (default min heap in python)
   heapq.heappop(heap)
   Pop and return the smallest item from the heap, maintaining the heap invariant. If the heap is empty, IndexError is raised. To access the smallest item without popping it, use heap[0].
 
-  
+Set
+  seen = set()
+  set.add(item)
+    The add() method adds a given element to a set. If the element is already present, it doesn't add any element.
