@@ -45,3 +45,35 @@ class Solution:
 
 Time Complexity: O(n log k) since for num in nums is n, popping from heap size k therefore log k, 
 Space Complexity: O(n + k) freq stores n, heap stores size k
+
+-----------------------------------------------------------------------------------
+
+Optimal Approach:
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        for num in nums:
+            count[num] = count.get(num, 0) + 1
+        
+        freq = [[] for i in range (len(nums) + 1)] #because max freq is the entire length and account for index 0
+        for num, numCnt in count.items():
+            freq[numCnt].append(num)
+
+        sol = []
+        for i in range(len(freq) - 1, 0, -1):
+            for num in freq[i]:
+                sol.append(num)
+            if len(sol) == k:
+                return sol
+
+bucket ex
+freq = [
+  [],        # freq[0] is unused
+  [3],       # freq[1]: number 3 appeared once
+  [1],       # freq[2]: number 1 appeared twice
+  [2],       # freq[3]: number 2 appeared three times
+  [], [], [] # the rest are unused in this case
+]
+
+Time Complexity: O(n)
+Space Complexity: O(n)
