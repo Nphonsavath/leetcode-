@@ -1,0 +1,47 @@
+Bruce Force Approach
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        solution = []
+
+        cur = {}
+        for num in nums:
+            cur[num] = cur.get(num, 0) + 1
+
+        while k > 0:
+            mostFreq = max(cur, key=cur.get)
+            solution.append(mostFreq)
+            del[cur[mostFreq]]
+            k-=1
+        return solution
+
+1 <= nums.length <= 10^4.
+-1000 <= nums[i] <= 1000
+1 <= k <= number of distinct elements in nums.
+
+maybe ask if two values appear the same amount of times but k = 1, which to return
+
+Time Complexity: O(k*n)
+Space Complexity: O(n+k)
+
+-----------------------------------------------------------------------------------
+
+Heap Approach:
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freq = {}
+        for num in nums:
+            freq[num] = freq.get(num, 0) + 1
+
+        heap = []
+        for num in freq.keys():
+            heapq.heappush(heap, (freq[num], num))
+            if (len(heap) > k):
+                heapq.heappop(heap)
+
+        solution = []
+        for i in range(k):
+            solution.append(heapq.heappop(heap)[1])
+        return solution
+
+Time Complexity: O(n log k) since for num in nums is n, popping from heap size k therefore log k, 
+Space Complexity: O(n + k) freq stores n, heap stores size k
