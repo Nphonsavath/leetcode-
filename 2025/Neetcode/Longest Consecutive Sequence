@@ -30,3 +30,23 @@ class Solution:
 do duplicates matter?
 Time Complexity: O(n log n) due to calling .sort (timsort)
 Space Complexity: O(n) for creating duplicate list
+
+----------------------------------------------------------
+
+Optimal Approach
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        solution = 0
+        hs = set(nums)
+        
+        for num in hs:
+            if num-1 not in hs:
+                currLongest = 1
+                while num+1 in hs:
+                    currLongest+=1
+                    num+=1
+                solution = max(solution, currLongest)
+        return solution
+
+Time Complexity: O(n)
+Space Complexity: O(n)
