@@ -16,7 +16,7 @@ Time Complexity: O(n^3) gg
 Space Complexity: O(m) for unique combinations that sum to 0
 
 --------------------------------------------------------------------------
-Two Pointer + hashmap Approach
+Hashmap Approach
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         hm = {}
