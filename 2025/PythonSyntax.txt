@@ -12,3 +12,14 @@ Set
   seen = set()
   set.add(item)
     The add() method adds a given element to a set. If the element is already present, it doesn't add any element.
+
+isalnum()
+  The method str.isalnum() checks if the character (or string) consists only of alphanumeric characters — i.e., letters (a-z, A-Z) and digits (0-9).
+    Time Complexity: O(1) for single char
+                     O(n) for string
+    Space Complexity: O(1)
+
+lower()
+  The lower() method returns a string where all characters are lower case.  Symbols and Numbers are ignored.
+    Time Complexity: O(n) for iterating through entire string
+    Space Complexity: O(n) for new string created
