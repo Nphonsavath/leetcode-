@@ -14,3 +14,23 @@ class Solution:
 
 Time Complexity: O(n^3) gg
 Space Complexity: O(m) for unique combinations that sum to 0
+
+--------------------------------------------------------------------------
+Two Pointer + hashmap Approach
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        hm = {}
+        hs = set()
+
+        for i, num in enumerate(nums):
+            hm[num] = i
+
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                target = -nums[i] + -nums[j]
+                if target in hm and i != j and i != hm[target] and j != hm[target]:
+                    hs.add(tuple(sorted(([nums[i], nums[j], target]))))
+        return [list(s) for s in hs]
+
+Time Complexity: O(n^2)
+Space Comlpexity: O(m + n)
