@@ -1,0 +1,36 @@
+Brute Force Approach
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        sol = 0
+        for i in range(len(heights)):
+            for j in range(i+1, len(heights)):
+                curr = (j-i)*min(heights[i], heights[j])
+                sol = max(sol, curr)
+        return sol
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
+
+--------------------------------------------------------
+
+Two Pointer Approach
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        solution = 0
+        L = 0
+        R = len(heights)-1
+
+        while L < R:
+            currMax = (R-L)*min(heights[L], heights[R])
+            solution = max(solution, currMax)
+            if (heights[L] < heights[R]):
+                L+=1
+            else:
+                R-=1
+
+        return solution
+2 <= height.length <= 1000
+0 <= height[i] <= 1000
+
+Time Complexity: O(n)
+Space Complexity: O(1)
