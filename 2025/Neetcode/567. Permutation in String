@@ -1,0 +1,28 @@
+Brute Force Approach
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if (len(s2) < len(s1)):
+            return False
+
+        l = 0
+        r = len(s1)
+
+        s1hm = {}
+        for c in s1:
+            s1hm[c] = s1hm.get(c, 0) + 1
+        print(s1hm)
+        
+        for i in range(len(s2)-r+1):
+            s2hm = {}
+            for j in range(l+i, r+i):
+                s2hm[s2[j]] = s2hm.get(s2[j], 0) + 1
+            if (s1hm == s2hm):
+                return True
+            print(s2hm)
+        return False
+        
+1 <= s1.length, s2.length <= 104
+s1 and s2 consist of lowercase English letters.
+
+Time Complexity: O(n^2) gg
+Space Complexity: O(n)
