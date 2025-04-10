@@ -23,3 +23,22 @@ lower()
   The lower() method returns a string where all characters are lower case.  Symbols and Numbers are ignored.
     Time Complexity: O(n) for iterating through entire string
     Space Complexity: O(n) for new string created
+
+sorted()
+  Returns a new sorted list from any iterable (like a list, string, tuple, set, dictionary, any iterable, custom objects).
+  Does not modify the original — unlike .sort() which sorts a list in-place.
+  uses timsort (hybrid of merge sort and insertion sort)
+  Time Complexity: O(n log n)
+  Space Complexity: O(n)
+
+sort()
+  Only on lists
+  Sort in-place and returns none
+  uses timsort (hybrid of merge sort and insertion sort)
+  Changes original
+  Time Complexity: O(n log n)
+  Space Complexity: O (n)?
+
+Why you can't add list to set?
+  lists are mutable and unhashable, therefore set.add(tuple([..])) because tuple is hashable. Since lists can change, their hash could become invalid.
+  
