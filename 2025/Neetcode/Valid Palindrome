@@ -1,3 +1,16 @@
+Reverse String Approach
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        dupeStr = ''
+        for c in s:
+            if c.isalnum():
+                dupeStr += c.lower()
+        return dupeStr == dupeStr[::-1]
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+---------------------------------------------------------------------
+
 Two Pointer Approach
 class Solution:
     def isPalindrome(self, s: str) -> bool:
