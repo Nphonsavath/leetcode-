@@ -1,0 +1,37 @@
+SYNOPSIS:
+Given an array of integers numbers that is sorted in non-decreasing order.
+  Think two pointers, binary search, early stopping/optimized loops
+  
+
+Brute Force Approach
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        for i in range(len(numbers)): O(n)
+            for j in range(i+1, len(numbers)): O(n)
+                if (numbers[i] + numbers[j] == target):
+                    return [i+1, j+1]
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
+
+2 <= numbers.length <= 1000
+-1000 <= numbers[i] <= 1000
+-1000 <= target <= 1000
+
+-------------------------------------------------------------------
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        L = 0
+        R = len(numbers)-1
+        while L < R:
+            if (numbers[L] + numbers[R] == target):
+                return [L+1, R+1]
+            if (numbers[L] + numbers[R] > target):
+                R-=1
+            if (numbers[L] + numbers[R] < target):
+                L+=1
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+        
