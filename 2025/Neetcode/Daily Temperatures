@@ -1,0 +1,39 @@
+Brute Force Approach
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        sol = []
+
+        for i in range(len(temperatures)):
+            for j in range(i+1, len(temperatures)):
+                if (temperatures[j] > temperatures[i]):
+                    sol.append(j-i)
+                    break
+            else:
+                sol.append(0)
+        return sol
+
+1 <= temperatures.length <= 1000.
+1 <= temperatures[i] <= 100
+
+Time Complexity: O(n^2)
+Space Complextiy: O(n)
+
+-------------------------------------------------------------------------
+
+Stack Approach
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        sol = [0] * len(temperatures)
+        stack = [] #stack[temp, index]
+
+         for i, temp in enumerate(temperatures):
+            if not stack:
+                stack.append([temp, i])
+            else:
+                while stack and temp > stack[-1][0]:
+                    sol[stack[-1][1]] = (i - stack[-1][1])
+                    stack.pop()
+                stack.append([temp, i])
+        return sol
+Time Complexity: O(n)
+Space Complexity: O(n)
