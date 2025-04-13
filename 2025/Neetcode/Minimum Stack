@@ -1,0 +1,77 @@
+Brute Force Approach
+class MinStack:
+
+    def __init__(self,):
+        self.stack = []
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+
+    def pop(self) -> None:
+        self.stack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        minElement = self.stack[0]
+        for i in range(len(self.stack)):
+            minElement = min(minElement, self.stack[i])
+        return minElement
+
+Time Complexity: O(1) for all ops except getMin which is O(n)
+Space Complexity: O(1) for all ops 
+
+----------------------------------------------------------------
+
+Two Stack Approach
+class MinStack:
+
+    def __init__(self,):
+        self.stack = []
+        self.minstack = []
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        if (self.minstack):
+            self.minstack.append(min(val, self.minstack[-1]))
+        else:
+            self.minstack.append(val)
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.minstack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.minstack[-1]
+
+Time Complexity: O(1) for all ops
+Space Complexity: O(1) for all ops 
+
+------------------------------------------------------------------
+One Stack Approach
+class MinStack:
+
+    def __init__(self):
+        self.stack = []
+
+    def push(self, val: int) -> None:
+        if (self.stack):
+            self.stack.append([val, min(val, self.stack[-1][1])])
+        else:
+            self.stack.append([val, val])
+
+    def pop(self) -> None:
+        self.stack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1][0]
+
+    def getMin(self) -> int:
+        return self.stack[-1][1]
+
+Time Complexity: O(1) for all ops
+Space Complexity: O(1) for all ops 
