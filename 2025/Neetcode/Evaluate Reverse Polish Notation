@@ -1,0 +1,26 @@
+Stack Approach
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+
+        for token in tokens:
+            if token == '+' or token == '-' or token == '*' or token == '/':
+                left = int(stack.pop())
+                right = int(stack.pop())
+                if token == '+':
+                    stack.append(right + left)
+                elif token == '-':
+                    stack.append(right - left)
+                elif token == '*':
+                    stack.append(right * left)
+                elif token == '/':
+                    stack.append(int(right / left))
+            else:
+                stack.append(token)
+        return int(stack.pop())
+
+1 <= tokens.length <= 1000.
+tokens[i] is "+", "-", "*", or "/", or a string representing an integer in the range [-100, 100].
+
+Time Complexity: O(n)
+Space Complexity: O(n)
