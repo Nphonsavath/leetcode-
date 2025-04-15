@@ -26,3 +26,35 @@ s1 and s2 consist of lowercase English letters.
 
 Time Complexity: O(n^2) gg
 Space Complexity: O(n)
+
+------------------------------------------------------------
+Hashmap Sliding Window Approach
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if (len(s1) > len(s2)):
+            return False
+
+        s1hm = {}
+        s2hm = {}
+
+        for i in range(len(s1)):
+            s1hm[s1[i]] = s1hm.get(s1[i], 0) + 1
+            s2hm[s2[i]] = s2hm.get(s2[i], 0) + 1
+        
+        if (s1hm == s2hm):
+            return True
+
+        l = 0
+        for j in range(len(s1), len(s2)):
+            s2hm[s2[j]] = s2hm.get(s2[j], 0) + 1
+            s2hm[s2[l]] -=1
+            if s2hm[s2[l]] == 0:
+                del s2hm[s2[l]]
+            l+=1
+            if (s1hm == s2hm):
+                return True
+        return False
+
+Time Complexity: O(n)
+Space Complexity: O(1)
