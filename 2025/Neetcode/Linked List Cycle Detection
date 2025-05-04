@@ -1,0 +1,49 @@
+Hashset solution
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        hs = set()
+        curr = head
+        while curr:
+            if curr.val in hs:
+                return True
+            hs.add(curr.val)
+            curr = curr.next
+        return False
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+--------------------------------------------------------------------
+
+Floyd's Tortoise and Hare Algorithm
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow = head
+        fast = head
+        while (fast and fast.next):
+            slow = slow.next
+            fast = fast.next.next
+            if (slow == fast):
+                return True
+        return False
+
+need to check fast and fast.next as if fast == None it'll break
+
+1 <= Length of the list <= 1000.
+-1000 <= Node.val <= 1000
+index is -1 or a valid index in the linked list.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
