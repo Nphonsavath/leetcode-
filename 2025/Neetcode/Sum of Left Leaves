@@ -1,0 +1,26 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        sol = 0
+        stack = [[root.left, root.right]]
+
+        while stack:
+            leftNode, rightNode = stack.pop()
+            if leftNode:
+                if not leftNode.left and not leftNode.right:
+                    sol += leftNode.val
+                else:
+                    stack.append([leftNode.left, leftNode.right])
+            if rightNode:
+                stack.append([rightNode.left, rightNode.right])
+                            
+        return sol
+The number of nodes in the tree is in the range [1, 1000].
+-1000 <= Node.val <= 1000
+Time Complexity: O(n)
+Space Complexity: O(n)
