@@ -31,3 +31,21 @@ class Solution:
 -100 <= Node.val <= 100
 Time Complexity: O(n*h?) because of max(self.stack)
 Space Complexity: O(n)
+
+---------------------------------------------------------------------------------------
+DFS
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+
+        def dfs(root, currMax):
+            if not root:
+                return 0
+            res = 1 if root.val >= currMax else 0
+            currMax = max(currMax, root.val)
+            res += dfs(root.left, currMax)
+            res += dfs(root.right, currMax)
+            return res
+
+        return dfs(root, root.val)
+Time Complexity: O(n)
+Space Complexity: O(n)
