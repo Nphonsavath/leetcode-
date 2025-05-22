@@ -1,0 +1,33 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        self.sol = 1
+        self.stack = []
+
+        def dfs(root):
+            if not root:
+                return
+            if self.stack and root.val >= max(self.stack)[1]:
+                self.sol+=1
+            if self.stack:
+                self.stack.append([root.val, max(max(self.stack)[1], root.val)])
+            else:
+                self.stack.append([root.val, root.val])
+
+            dfs(root.left)
+            dfs(root.right)
+            self.stack.pop()
+            return
+
+        dfs(root)
+        return self.sol
+1 <= number of nodes in the tree <= 100
+-100 <= Node.val <= 100
+Time Complexity: O(n*h?) because of max(self.stack)
+Space Complexity: O(n)
