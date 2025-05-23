@@ -34,18 +34,21 @@ Iterative DFS
 
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        arr = []
 
-        def dfs(node):
-            if not node:
-                return
-            
-            dfs(node.left)
-            arr.append(node.val)
-            dfs(node.right)
+        stack = []
+
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left
+
+            root = stack.pop()
+            k -= 1
+            if k == 0:
+                return root.val
+            root = root.right
         
-        dfs(root)
-        return arr[k - 1]
+        return -1
 Time Complexity: O(n) 
 Space Complexity: O(n)
 
