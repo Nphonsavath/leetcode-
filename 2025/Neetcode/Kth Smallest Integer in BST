@@ -81,3 +81,13 @@ class Solution:
         return self.sol
 Time Complexity: O(n) 
 Space Complexity: O(n)
+
+Follow up: If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
+1. At current node:
+    left_size = number of nodes in left subtree
+2. If k == left_size + 1:
+       → return current node
+3. If k <= left_size:
+       → recurse into left subtree
+4. If k > left_size + 1:
+       → recurse into right subtree with k - (left_size + 1)
