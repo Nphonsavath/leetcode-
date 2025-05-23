@@ -1,0 +1,54 @@
+DFS Recursive
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        self.sol = []
+
+        def inorder(root):
+            if not root:
+                return
+            inorder(root.left)
+            self.sol.append(root.val)
+            inorder(root.right)
+            return
+
+        inorder(dfs)
+        return self.sol
+Time Complexity: O(n)
+Space Complexity: O(n)
+-----------------------------------------------------------------------------
+
+DFS Iterative
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+
+        sol = []
+        stack = []
+
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left
+            
+            root = stack.pop()
+            sol.append(root.val)
+            root = root.right
+        
+        return sol
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+Time Complexity: O(n)
+Space Complexity: O(n)
