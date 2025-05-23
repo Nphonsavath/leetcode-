@@ -48,3 +48,33 @@ class Solution:
         return arr[k - 1]
 Time Complexity: O(n) 
 Space Complexity: O(n)
+
+--------------------------------------------------------------------------
+Recursive DFS
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        self.remaining = k
+        self.sol = root.val
+
+        def dfs(root):
+            if not root:
+                return
+
+            dfs(root.left)
+            self.remaining-=1
+            if (self.remaining == 0):
+                self.sol = root.val
+                return
+            dfs(root.right)
+        
+        dfs(root)
+        return self.sol
+Time Complexity: O(n) 
+Space Complexity: O(n)
